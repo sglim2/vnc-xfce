@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Chromium
+Comment=Internet
+Exec=chromium-browser %U --no-sandbox
+Icon=chromium-browser
+Path=
+Terminal=false
+StartupNotify=true
