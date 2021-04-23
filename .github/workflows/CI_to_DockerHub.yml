@@ -12,7 +12,7 @@ env:
   # IMAGE_NAME: centos-vnc-xfce:${GITHUB_REF:8}
   # IMAGE_NAME: ${{ steps.docker.outputs.IMAGE_SHA_NAME }}
   IMAGE_NAME: centos-vnc-xfce
-  IMAGE_TAG: ${GITHUB_SHA::8}
+  IMAGE_TAG: $(echo ${GITHUB_SHA} | cut -c1-8)
   
 jobs:
   build:
