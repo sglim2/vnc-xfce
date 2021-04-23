@@ -57,11 +57,11 @@ if [ -f /usr/share/Modules/init/.modulespath ] ; then
 fi
 echo "export MODULEPATH=$EnvironmentModules:\$MODULEPATH" >> ${HOME}/.bashrc
 
-if [ -z "$1" ] ; then
-    wait $PID_SUB
-else
+#if [ -z "$1" ] ; then
+#    wait $PID_SUB
+#else
 #    echo -e "\n# Execute supplied command\n"
 #    echo "Executing supplied command: '$@'"
-    exec "/bin/bash"
-fi
+    sleep infinity 
+#fi
 
