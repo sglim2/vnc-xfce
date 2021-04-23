@@ -12,7 +12,7 @@ env:
   # IMAGE_NAME: centos-vnc-xfce:${GITHUB_REF:8}
   # IMAGE_NAME: ${{ steps.docker.outputs.IMAGE_SHA_NAME }}
   IMAGE_NAME: centos-vnc-xfce
-  IMAGE_TAG: "${GITHUB_SHA:8}"
+  IMAGE_TAG: ${GITHUB_SHA::8}
   
 jobs:
   build:
@@ -20,6 +20,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: list envs
+        run: |
+          echo IMAGE_NAME = $IMAGE_NAME
+          echo IMAGE_TAG  = $IMAGE_TAG
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
