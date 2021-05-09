@@ -3,7 +3,7 @@
 ```
 docker pull cubio/centos-vnc-xfce:latest
 docker run -d --shm-size=256m -p 5901:5901 -p 6905:6901 -e VNC_PW=aVeryGoodPassword cubio/centos-vnc-xfce:latest
-``` 
+```
 
 Point your VNC client to ```localhost:5901```, or your browser to ```localhost:6901```.
 
@@ -62,3 +62,4 @@ spec:
 
 ```
 
+Last edited by JBW on 09/05/2021
