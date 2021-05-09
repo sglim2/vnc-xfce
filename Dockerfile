@@ -1,6 +1,6 @@
 FROM quay.io/centos/centos:stream
 
-MAINTAINER Ian Merrick "MerrickI@Cardiff.ac.uk"
+MAINTAINER Bleddyn Williams "williamsjm14@Cardiff.ac.uk"
 
 ENV DISPLAY=:1 \
     VNC_PORT=5901 \
@@ -46,6 +46,7 @@ RUN dnf -y install epel-release && \
         man-pages \
         mpich \
         mpich-devel \
+        nano \
         net-tools \
         openmpi \
         openmpi-devel \
