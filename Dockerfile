@@ -35,6 +35,7 @@ RUN dnf -y install epel-release && \
         bzip2 \
         curl \
         environment-modules \
+        epel-release \
         gcc \
         gcc-gfortran \
         git \ 
