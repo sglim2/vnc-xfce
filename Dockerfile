@@ -120,7 +120,7 @@ ADD ./startupdir $STARTUPDIR
 RUN chmod -R a+rw $HOME && \
     chmod -R a+rw $STARTUPDIR
 
-RUN mkdir /home/LOCOEFA \
+RUN mkdir /home/LOCOEFA; exit 0 \
     cd /home/LOCOEFA \
     git clone https://bitbucket.org/mareelab/loco_efa.git
 
