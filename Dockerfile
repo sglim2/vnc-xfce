@@ -122,8 +122,8 @@ RUN chmod -R a+rw $HOME && \
     chmod -R a+rw $STARTUPDIR
 
 RUN mkdir /home/LOCOEFA \
-          cd /home/LOCOEFA \
-          git clone https://bitbucket.org/mareelab/loco_efa.git
+    cd /home/LOCOEFA \
+    git clone https://bitbucket.org/mareelab/loco_efa.git
 
 USER 1000
 
