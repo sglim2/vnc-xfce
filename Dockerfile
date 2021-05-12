@@ -38,6 +38,10 @@ RUN dnf -y install epel-release && \
         gcc \
         gcc-gfortran \
         git \ 
+        grace \
+        grace-devel \
+        libpng \
+        libpng-devel \
         hostname \ 
         lmdb-libs \
         make \
@@ -116,6 +120,8 @@ ADD ./startupdir $STARTUPDIR
 
 RUN chmod -R a+rw $HOME && \
     chmod -R a+rw $STARTUPDIR
+
+RUN git clone https://bitbucket.org/mareelab/loco_efa.git
 
 USER 1000
 
