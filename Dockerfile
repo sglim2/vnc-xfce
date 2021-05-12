@@ -39,8 +39,6 @@ RUN dnf -y install epel-release && \
         gcc \
         gcc-gfortran \
         git \ 
-        grace \
-        grace-devel \
         libpng \
         libpng-devel \
         hostname \ 
