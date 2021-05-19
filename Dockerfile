@@ -39,7 +39,7 @@ RUN dnf -y install epel-release && \
         gcc \
         gcc-gfortran \
         git \
-        grace \ 
+        https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/Everything/source/tree/Packages/g/grace-5.1.25-22.fc35.src.rpm \ 
         libpng \
         libpng-devel \
         hostname \ 
