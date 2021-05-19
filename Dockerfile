@@ -38,7 +38,8 @@ RUN dnf -y install epel-release && \
         https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
         gcc \
         gcc-gfortran \
-        git \ 
+        git \
+        grace \ 
         libpng \
         libpng-devel \
         hostname \ 
