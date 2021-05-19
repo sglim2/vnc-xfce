@@ -35,7 +35,7 @@ RUN dnf -y install epel-release && \
         bzip2 \
         curl \
         environment-modules \
-        epel-release \
+        https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
         gcc \
         gcc-gfortran \
         git \ 
@@ -59,6 +59,7 @@ RUN dnf -y install epel-release && \
         wget \ 
         which && \
     dnf -y groupinstall "Development tools" && \
+    dnf config-manager --set-enabled powertools && \
     dnf clean all && \
     rm -rf /var/cache/dnf
 
