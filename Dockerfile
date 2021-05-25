@@ -39,9 +39,6 @@ RUN dnf -y install epel-release && \
         gcc \
         gcc-gfortran \
         git \
-        https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/Everything/source/tree/Packages/x/xbae-4.60.4-32.fc34.src.rpm \ 
-        https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/Everything/source/tree/Packages/u/urw-base35-fonts-20200910-4.fc35.src.rpm \
-        https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/Everything/source/tree/Packages/g/grace-5.1.25-22.fc35.src.rpm \ 
         libpng \
         libpng-devel \
         hostname \ 
