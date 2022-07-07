@@ -65,7 +65,7 @@ RUN dnf -y --enablerepo=extras install epel-release && \
     libseccomp-devel \
     squashfs-tools && \
     dnf config-manager --set-enabled powertools && \
-    dnf pip3 install xmltodict dicttoxml psutil snakemake && \
+    dnf pip39-pip install xmltodict dicttoxml psutil snakemake && \
     dnf clean all && \
     rm -rf /var/cache/dnf
 
