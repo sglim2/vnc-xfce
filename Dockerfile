@@ -29,7 +29,7 @@ RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} +
 ### Install some common tools
 RUN dnf -y --enablerepo=extras install epel-release && \
     dnf -y update && \
-    dnf -y install python36 python36-devel && \
+    dnf -y install python39 python39-devel && \
     alternatives --set python /usr/bin/python3 && \
     dnf -y install \
         bzip2 \
@@ -57,7 +57,6 @@ RUN dnf -y --enablerepo=extras install epel-release && \
         python3-numpy \
         vim \
         wget \
-        python3-pip \
         which && \
     dnf -y groupinstall "Development tools" && \
     dnf install -y \
@@ -66,7 +65,7 @@ RUN dnf -y --enablerepo=extras install epel-release && \
     libseccomp-devel \
     squashfs-tools && \
     dnf config-manager --set-enabled powertools && \
-    dnf python3-pip install xmltodict dicttoxml psutil snakemake && \
+    dnf pip3 install xmltodict dicttoxml psutil snakemake && \
     dnf clean all && \
     rm -rf /var/cache/dnf
 
