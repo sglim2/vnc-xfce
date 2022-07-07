@@ -27,7 +27,7 @@ ADD ./install_scripts/ $INST_SCRIPTS/
 RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} +
 
 ### Install some common tools
-RUN dnf -y install epel-release && \
+RUN dnf -y --enablerepo=extras install epel-release && \
     dnf -y update && \
     dnf -y install python36 python36-devel && \
     alternatives --set python /usr/bin/python3 && \
