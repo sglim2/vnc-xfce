@@ -41,7 +41,7 @@ RUN dnf -y install epel-release && \
         git \
         libpng \
         libpng-devel \
-        hostname \ 
+        hostname \
         lmdb-libs \
         make \
         man \
@@ -57,9 +57,16 @@ RUN dnf -y install epel-release && \
         python3-numpy \
         vim \
         wget \
+        pip \
         which && \
     dnf -y groupinstall "Development tools" && \
+    dnf install -y \
+    openssl-devel \
+    libuuid-devel \
+    libseccomp-devel \
+    squashfs-tools && \
     dnf config-manager --set-enabled powertools && \
+    dnf pip install xmltodict dicttoxml psutil snakemake && \
     dnf clean all && \
     rm -rf /var/cache/dnf
 
@@ -76,7 +83,7 @@ RUN dnf group install -y "Development tools" && \
 RUN dnf -y install tigervnc-server tigervnc-server-minimal && \
     dnf clean all && \
     rm -rf /var/cache/dnf
-                                                                                                                                              
+
 RUN mkdir -p $NO_VNC_HOME/utils/websockify && \
     curl -L https://github.com/novnc/noVNC/archive/${NO_VNC_VERSION}.tar.gz | tar xz --strip 1 -C $NO_VNC_HOME  && \
     curl -L https://github.com/novnc/websockify/archive/${WEBSOCKIFY_VERSION}.tar.gz | tar xz --strip 1 -C $NO_VNC_HOME/utils/websockify && \
@@ -86,7 +93,7 @@ RUN mkdir -p $NO_VNC_HOME/utils/websockify && \
 
 RUN dnf clean all
 
-RUN dnf install -y chromium 
+RUN dnf install -y chromium
 
 #RUN $INST_SCRIPTS/xfce_ui.sh
 RUN dnf install -y \
