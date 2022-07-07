@@ -57,7 +57,7 @@ RUN dnf -y install epel-release && \
         python3-numpy \
         vim \
         wget \
-        -- assumeyes python3-pip \
+        python3-pip \
         which && \
     dnf -y groupinstall "Development tools" && \
     dnf install -y \
