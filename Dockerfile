@@ -137,7 +137,7 @@ RUN mkdir -p /home/LOCOEFA &&\
     cd /home/LOCOEFA &&\
     git clone https://bitbucket.org/mareelab/loco_efa.git
 
-USER 1000
+# USER 1000
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
