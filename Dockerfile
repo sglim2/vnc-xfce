@@ -39,6 +39,7 @@ RUN dnf -y --enablerepo=extras install epel-release && \
         gcc \
         gcc-gfortran \
         git \
+        tar \
         libpng \
         libpng-devel \
         hostname \
@@ -76,7 +77,7 @@ RUN dnf group install -y "Development tools" && \
 RUN wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz && \
     dnf tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz && \
     export PATH=$PATH:/usr/local/go/bin && \
-    source ~/.bash_profile 
+    source ~/.bash_profile
 
 #ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
