@@ -74,9 +74,10 @@ RUN dnf group install -y "Development tools" && \
     dnf clean all && \
     rm -rf /var/dnf/cache
 
-RUN wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz && \
+RUN wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz && \
     echo 'export PATH=$PATH:/usr/local/go/bin'>> $HOME/.bashrc \
+RUN dnf install -y singularity-runtime singularity
 
 
 #ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
