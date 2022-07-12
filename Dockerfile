@@ -121,6 +121,18 @@ RUN wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz && \
     echo 'export PATH=$PATH:/usr/local/go/bin'>> $HOME/.bashrc
 RUN dnf install -y singularity-runtime singularity
 
+RUN cd ~ && \
+    wget https://downloads.openmicroscopy.org/bio-formats/5.5.2/artifacts/bftools.zip && \
+    unzip bftools.zip && \
+    echo 'export PATH="$HOME/bftools:$PATH"
+
+RUN pip3 install xmltodict dicttoxml psutil
+
+
+
+
+
+
 
 #ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
