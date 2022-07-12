@@ -72,7 +72,7 @@ RUN dnf -y --enablerepo=extras install epel-release && \
         passwd \
         pigz \
         python3-numpy \
-        R \
+        #R \
         stress-ng \
         syslog-ng \
         tree \
