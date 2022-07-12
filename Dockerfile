@@ -126,7 +126,7 @@ RUN cd ~ && \
     unzip bftools.zip && \
     echo 'export PATH="$HOME/bftools:$PATH"'>> $HOME/.bashrc
 
-RUN pip3 install xmltodict dicttoxml plutil snakemake
+RUN pip3 install xmltodict dicttoxml psutil snakemake
 
 
 
