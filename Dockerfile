@@ -124,9 +124,9 @@ RUN dnf install -y singularity-runtime singularity
 RUN cd ~ && \
     wget https://downloads.openmicroscopy.org/bio-formats/5.5.2/artifacts/bftools.zip && \
     unzip bftools.zip && \
-    echo 'export PATH="$HOME/bftools:$PATH"
+    echo 'export PATH="$HOME/bftools:$PATH">> $HOME/.bashrc
 
-RUN pip3 install xmltodict dicttoxml psutil
+RUN pip3 install xmltodict dicttoxml plutil snakemake
 
 
 
