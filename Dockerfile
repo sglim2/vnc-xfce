@@ -40,49 +40,49 @@ RUN dnf -y --enablerepo=extras install epel-release && \
         environment-modules \
         https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
         expat-devel \
-	      firefox \
-	      freeglut \
-	      freeglut-devel \
-	      glibc-common \
-	      glx-utils \
-	      gmp-devel \
-	      gnuplot \
-	      hostname \
-	      java \
-	      libmpc-devel \
+        firefox \
+        freeglut \
+        freeglut-devel \
+        glibc-common \
+        glx-utils \
+        gmp-devel \
+        gnuplot \
+        hostname \
+        java \
+        libmpc-devel \
         libpng \
         libpng-devel \
-	      libtool \
-	      libxml2-devel \
+        libtool \
+        libxml2-devel \
         lmdb-libs \
-	      lmdb-devel \
+        lmdb-devel \
         man \
         man-db \
         man-pages \
-	      mesa-dri-drivers \
-	      mpfr-devel \
+        mesa-dri-drivers \
+        mpfr-devel \
         mpich \
         mpich-devel \
-	      ncurses-devel \
+        ncurses-devel \
         net-tools \
         openmpi \
         openmpi-devel \
-	      openssh-server \
-	      parallel \
+        openssh-server \
+        parallel \
         passwd \
-	      pigz \
+        pigz \
         python3-numpy \
-	      R \
-	      stress-ng \
-	      syslog-ng \
-	      tree \
-	      unzip \
-	      xauth \
-	      xeyes \
-	      xorg-x11-utils \
-	      xz-devel \
-	      zenity \
-	      zlib-devel \
+        R \
+        stress-ng \
+        syslog-ng \
+        tree \
+        unzip \
+        xauth \
+        xeyes \
+        xorg-x11-utils \
+        xz-devel \
+        zenity \
+        zlib-devel \
         gcc \
         gcc-gfortran \
         git \
