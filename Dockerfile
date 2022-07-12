@@ -33,9 +33,56 @@ RUN dnf -y --enablerepo=extras install epel-release && \
     alternatives --set python /usr/bin/python3 && \
     dnf -y install \
         bzip2 \
+        bzip2-devel \
+        dbus-x11 \
+        cmake \
         curl \
         environment-modules \
         https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
+        expat-devel \
+	      firefox \
+	      freeglut \
+	      freeglut-devel \
+	      glibc-common \
+	      glx-utils \
+	      gmp-devel \
+	      gnuplot \
+	      hostname \
+	      java \
+	      libmpc-devel \
+        libpng \
+        libpng-devel \
+	      libtool \
+	      libxml2-devel \
+        lmdb-libs \
+	      lmdb-devel \
+        man \
+        man-db \
+        man-pages \
+	      mesa-dri-drivers \
+	      mpfr-devel \
+        mpich \
+        mpich-devel \
+	      ncurses-devel \
+        net-tools \
+        openmpi \
+        openmpi-devel \
+	      openssh-server \
+	      parallel \
+        passwd \
+	      pigz \
+        python3-numpy \
+	      R \
+	      stress-ng \
+	      syslog-ng \
+	      tree \
+	      unzip \
+	      xauth \
+	      xeyes \
+	      xorg-x11-utils \
+	      xz-devel \
+	      zenity \
+	      zlib-devel \
         gcc \
         gcc-gfortran \
         git \
@@ -45,11 +92,6 @@ RUN dnf -y --enablerepo=extras install epel-release && \
         hostname \
         lmdb-libs \
         make \
-        man \
-        man-db \
-        man-pages \
-        mpich \
-        mpich-devel \
         nano \
         net-tools \
         openmpi \
