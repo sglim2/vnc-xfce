@@ -55,7 +55,7 @@ RUN dnf -y --enablerepo=extras install epel-release && \
         libtool \
         libxml2-devel \
         lmdb-libs \
-        lmdb-devel \
+        #lmdb-devel \
         man \
         man-db \
         man-pages \
@@ -78,7 +78,7 @@ RUN dnf -y --enablerepo=extras install epel-release && \
         tree \
         unzip \
         xauth \
-        xeyes \
+        #xeyes \
         xorg-x11-utils \
         xz-devel \
         zenity \
