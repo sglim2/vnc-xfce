@@ -37,8 +37,8 @@ jobs:
 
       - name: Build image
         run: eval $(ssh-agent)
-        run: ssh-add ~/.ssh/id_rsa
-        run: DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag $IMAGE_NAME --ssh default=${SSH_AUTH_SOCK}
+             ssh-add ~/.ssh/id_rsa
+             DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag $IMAGE_NAME --ssh default=${SSH_AUTH_SOCK}
         
       - name: Push image
         run: |
