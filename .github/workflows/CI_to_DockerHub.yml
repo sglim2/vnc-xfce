@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+        run: DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag $IMAGE_NAME --ssh default
         
       - name: Push image
         run: |
