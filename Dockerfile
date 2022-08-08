@@ -193,8 +193,8 @@ RUN mkdir -p /home/LOCOEFA &&\
     
 COPY github_key .
 
-RUN chmod 600 github_key \
-    eval ssh-agent && \
+RUN chmod 600 github_key &&\
+    eval $(ssh-agent) && \
     ssh-add github_key && \
     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
     git clone git@github.com:jbleddyn/misc_python.git /opt/misc_python
