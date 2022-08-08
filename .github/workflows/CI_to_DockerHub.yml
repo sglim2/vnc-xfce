@@ -36,7 +36,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build image
-        run: DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag $IMAGE_NAME --ssh default=$SSH_AUTH_SOCK
+        run: eval $(ssh-agent)
+        run: ssh-add ~/.ssh/id_rsa
+        run: DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag $IMAGE_NAME --ssh default=${SSH_AUTH_SOCK}
         
       - name: Push image
         run: |
