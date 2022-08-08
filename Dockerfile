@@ -190,6 +190,11 @@ RUN chmod -R a+rw $HOME && \
 RUN mkdir -p /home/LOCOEFA &&\
     cd /home/LOCOEFA &&\
     git clone https://bitbucket.org/mareelab/loco_efa.git
+    
+RUN mkdir -p -m 0700 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+RUN --mount=type=ssh git clone git@github.com:jbleddyn/misc_python.git misc_python
+
 
 # USER 1000
 
