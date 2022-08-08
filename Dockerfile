@@ -193,7 +193,7 @@ RUN mkdir -p /home/LOCOEFA &&\
     
 COPY github_key . 
 
-COPY requirements.txt .
+
 
 RUN chmod 600 github_key && \
     chmod 600 requirements.txt && \
@@ -205,8 +205,14 @@ RUN chmod 600 github_key && \
     
 RUN wget -O /tmp/pycharm.tar.gz "https://download.jetbrains.com/python/pycharm-community-2022.2.tar.gz?_ga=2.203649815.689967100.1659698104-1332970678.1659698104&_gl=1*6pacqh*_ga*MTMzMjk3MDY3OC4xNjU5Njk4MTA0*_ga_9J976DJZ68*MTY1OTY5ODEwNC4xLjEuMTY1OTcwMDg0MC4w" && \
     cd /tmp && \
-    tar fvxz pycharm.tar.gz -C /opt && \
-    pip3 install -r requirements.txt 
+    tar fvxz pycharm.tar.gz -C /opt 
+    
+COPY requirements.txt .
+    
+
+RUN pip3 install -r requirements.txt 
+
+
     
     
     
