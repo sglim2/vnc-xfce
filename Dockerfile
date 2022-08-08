@@ -196,7 +196,6 @@ COPY github_key .
 
 
 RUN chmod 600 github_key && \
-    chmod 600 requirements.txt && \
     eval $(ssh-agent) && \
     ssh-add github_key && \
     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
@@ -208,7 +207,8 @@ RUN wget -O /tmp/pycharm.tar.gz "https://download.jetbrains.com/python/pycharm-c
     tar fvxz pycharm.tar.gz -C /opt 
     
 COPY requirements.txt .
-    
+
+RUN chmod 600 requirements.txt 
 
 RUN pip3 install -r requirements.txt 
 
