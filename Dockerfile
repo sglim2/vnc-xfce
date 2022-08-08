@@ -191,13 +191,25 @@ RUN mkdir -p /home/LOCOEFA &&\
     cd /home/LOCOEFA &&\
     git clone https://bitbucket.org/mareelab/loco_efa.git
     
-COPY github_key .
+COPY github_key . 
 
-RUN chmod 600 github_key &&\
+COPY requirements.txt .
+
+RUN chmod 600 github_key && \
+    chmod 600 requirements.txt && \
     eval $(ssh-agent) && \
     ssh-add github_key && \
     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
     git clone git@github.com:jbleddyn/misc_python.git /opt/misc_python
+    
+    
+RUN wget -O /tmp/pycharm.tar.gz "https://download.jetbrains.com/python/pycharm-community-2022.2.tar.gz?_ga=2.203649815.689967100.1659698104-1332970678.1659698104&_gl=1*6pacqh*_ga*MTMzMjk3MDY3OC4xNjU5Njk4MTA0*_ga_9J976DJZ68*MTY1OTY5ODEwNC4xLjEuMTY1OTcwMDg0MC4w" && \
+    tar fvxz pycharm.tar.gz -C /opt && \
+    pip install -r requirements.txt \
+    
+    
+    
+
 
 
 # USER 1000
