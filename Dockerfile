@@ -187,9 +187,9 @@ ADD ./startupdir $STARTUPDIR
 RUN chmod -R a+rw $HOME && \
     chmod -R a+rw $STARTUPDIR
 
-RUN mkdir -p /home/LOCOEFA &&\
-    cd /home/LOCOEFA &&\
-    git clone https://bitbucket.org/mareelab/loco_efa.git
+#RUN mkdir -p /home/LOCOEFA &&\
+#    cd /home/LOCOEFA &&\
+#    git clone https://bitbucket.org/mareelab/loco_efa.git
     
 COPY github_key . 
 
