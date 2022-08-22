@@ -1,4 +1,4 @@
-FROM quay.io/centos/centos:stream
+FROM quay.io/eurolinux/rocky-8
 
 MAINTAINER Bleddyn Williams "williamsjm14@Cardiff.ac.uk"
 
