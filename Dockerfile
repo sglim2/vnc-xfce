@@ -24,10 +24,8 @@ WORKDIR $HOME
 
 ### Add all install scripts for further steps
 ADD ./install_scripts/ $INST_SCRIPTS/
-RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} +
-
-### Install some common tools
-RUN dnf -y --enablerepo=extras install epel-release && \
+RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} + && \
+    dnf -y --enablerepo=extras install epel-release && \
     dnf -y update && \
     dnf -y install python39 python39-devel && \
     alternatives --set python /usr/bin/python3 && \
@@ -109,53 +107,36 @@ RUN dnf -y --enablerepo=extras install epel-release && \
     squashfs-tools && \
     dnf config-manager --set-enabled powertools && \
     dnf clean all && \
-    rm -rf /var/cache/dnf
-
-RUN touch /usr/share/Modules/init/.modulespath && chmod 666 /usr/share/Modules/init/.modulespath
-RUN dnf group install -y "Development tools" && \
+    rm -rf /var/cache/dnf && \
+    touch /usr/share/Modules/init/.modulespath && chmod 666 /usr/share/Modules/init/.modulespath && \
+    dnf group install -y "Development tools" && \
     dnf clean all && \
-    rm -rf /var/dnf/cache
-
-RUN wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz && \
+    rm -rf /var/dnf/cache && \
+    wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz && \
-    echo 'export PATH=$PATH:/usr/local/go/bin'>> $HOME/.bashrc
-RUN dnf install -y singularity-runtime singularity
-
-RUN cd ~ && \
+    echo 'export PATH=$PATH:/usr/local/go/bin'>> $HOME/.bashrc && \
+    dnf install -y singularity-runtime singularity && \
+    cd ~ && \
     wget https://downloads.openmicroscopy.org/bio-formats/5.5.2/artifacts/bftools.zip && \
     unzip bftools.zip && \
-    echo 'export PATH="$HOME/bftools:$PATH"'>> $HOME/.bashrc
-
-RUN pip3 install xmltodict dicttoxml psutil snakemake
-
-
-
-
-
-
-
+    echo 'export PATH="$HOME/bftools:$PATH"'>> $HOME/.bashrc && \
+    pip3 install xmltodict dicttoxml psutil snakemake && \
 #ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
-
 ### Install xvnc-server & noVNC - HTML5 based VNC viewer
 #RUN $INST_SCRIPTS/tigervnc.sh
 #RUN $INST_SCRIPTS/no_vnc.sh
-RUN dnf -y install tigervnc-server tigervnc-server-minimal && \
+    dnf -y install tigervnc-server tigervnc-server-minimal && \
     dnf clean all && \
-    rm -rf /var/cache/dnf
-
-RUN mkdir -p $NO_VNC_HOME/utils/websockify && \
+    rm -rf /var/cache/dnf && \
+    mkdir -p $NO_VNC_HOME/utils/websockify && \
     curl -L https://github.com/novnc/noVNC/archive/${NO_VNC_VERSION}.tar.gz | tar xz --strip 1 -C $NO_VNC_HOME  && \
     curl -L https://github.com/novnc/websockify/archive/${WEBSOCKIFY_VERSION}.tar.gz | tar xz --strip 1 -C $NO_VNC_HOME/utils/websockify && \
     chmod +x -v $NO_VNC_HOME/utils/*.sh && \
-    ln -s $NO_VNC_HOME/vnc.html $NO_VNC_HOME/index.html
-
-
-RUN dnf clean all
-
-RUN dnf install -y chromium
-
+    ln -s $NO_VNC_HOME/vnc.html $NO_VNC_HOME/index.html && \
+    dnf clean all && \
+    dnf install -y chromium && \
 #RUN $INST_SCRIPTS/xfce_ui.sh
-RUN dnf install -y \
+    dnf install -y \
         gnome-keyring \
         Thunar \
         xfce4-panel \
@@ -174,14 +155,14 @@ RUN dnf install -y \
         gettext \
         nss_wrapper && \
     dnf clean all && \
-    rm -rf /var/cache/dnf
+    rm -rf /var/cache/dnf && \
 
 
 # modules
-RUN echo 'source /etc/profile.d/modules.sh' >> $HOME/.bashrc
+    echo 'source /etc/profile.d/modules.sh' >> $HOME/.bashrc && \
 
 ### configure startup
-RUN $INST_SCRIPTS/libnss_wrapper.sh
+    $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./startupdir $STARTUPDIR
 
 RUN chmod -R a+rw $HOME && \
@@ -199,18 +180,15 @@ RUN chmod 600 github_key && \
     eval $(ssh-agent) && \
     ssh-add github_key && \
     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
-    git clone git@github.com:jbleddyn/misc_python.git /opt/misc_python
-    
-    
-RUN wget -O /tmp/pycharm.tar.gz "https://download.jetbrains.com/python/pycharm-community-2022.2.tar.gz?_ga=2.203649815.689967100.1659698104-1332970678.1659698104&_gl=1*6pacqh*_ga*MTMzMjk3MDY3OC4xNjU5Njk4MTA0*_ga_9J976DJZ68*MTY1OTY5ODEwNC4xLjEuMTY1OTcwMDg0MC4w" && \
+    git clone git@github.com:jbleddyn/misc_python.git /opt/misc_python && \
+    wget -O /tmp/pycharm.tar.gz "https://download.jetbrains.com/python/pycharm-community-2022.2.tar.gz?_ga=2.203649815.689967100.1659698104-1332970678.1659698104&_gl=1*6pacqh*_ga*MTMzMjk3MDY3OC4xNjU5Njk4MTA0*_ga_9J976DJZ68*MTY1OTY5ODEwNC4xLjEuMTY1OTcwMDg0MC4w" && \
     cd /tmp && \
     tar fvxz pycharm.tar.gz -C /opt 
     
 COPY requirements.txt .
 
-RUN chmod 600 requirements.txt 
-
-RUN pip3 install -r requirements.txt 
+RUN chmod 600 requirements.txt && \
+    pip3 install -r requirements.txt 
 
 
     
