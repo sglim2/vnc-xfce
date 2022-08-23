@@ -27,7 +27,7 @@ ADD ./install_scripts/ $INST_SCRIPTS/
 RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} + && \
     dnf -y --enablerepo=extras install epel-release && \
     dnf -y update && \
-    dnf -y install python38 python38-devel && \
+    dnf -y install python38-tkinter python38-devel && \
     alternatives --set python /usr/bin/python3 && \
     dnf -y install \
         bzip2 \
